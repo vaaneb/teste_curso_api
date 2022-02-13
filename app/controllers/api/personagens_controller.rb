@@ -1,9 +1,9 @@
-class PersonagensController < ApplicationController
+class Api::PersonagensController < ApplicationController
   before_action :set_personagem, only: %i[ show update destroy ]
 
   # GET /personagens
   def index
-    @personagens = Personagem.all
+    @personagens = Personagem.all.sorted_by_name
 
     render json: @personagens
   end
