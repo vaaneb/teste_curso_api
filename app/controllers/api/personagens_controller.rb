@@ -18,7 +18,7 @@ class Api::PersonagensController < ApplicationController
     @personagem = Personagem.new(personagem_params)
 
     if @personagem.save
-      render json: @personagem, status: :created, location: @personagem
+      render json: @personagem, status: :created, location: api_personagem_url(@personagem)
     else
       render json: @personagem.errors, status: :unprocessable_entity
     end
