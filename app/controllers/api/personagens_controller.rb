@@ -3,7 +3,7 @@ class Api::PersonagensController < ApplicationController
 
   # GET /personagens
   def index
-    @personagens = Personagem.all.sorted_by_name
+    @personagens = Personagem.search(params[:term]).sorted_by_name
 
     render json: @personagens
   end
